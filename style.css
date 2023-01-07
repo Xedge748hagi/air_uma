@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+/*メインイメージ（bg_main.jpgを読み込んでいます）
+---------------------------------------------------------------------------*/
+.bg {
+	width: 1920px;
+	height: 1084px;
+	background-image: url("bg_main.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
