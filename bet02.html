@@ -1,0 +1,565 @@
+﻿<!--bet02.html-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>馬券投票シミュレーション『エアうま』＞ レース選択 ＞ 模擬投票</title>
+
+    <!--以下は画面遷移したら消す？-->
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap:; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src *; img-src * data: blob: android-webview-video-poster:; style-src * 'unsafe-inline';">
+    <!--フォントの読み込み-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="bg">
+    <div class="col-11 clearfix mt-1 ms-2">
+
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a href="#tab1" class="nav-link active" data-bs-toggle="tab" aria-current="page">オッズ投票（識別）</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tab2" class="nav-link" data-bs-toggle="tab">オッズ投票（人気順）</a>
+        </li>
+    </ul>
+
+    <div class="clearfix">
+        <form>
+            <div class="col-auto mt-2"><p>～ 中山(水)　１１Ｒ　ホープフルステークス(ＧⅠ) ～</p></div> 
+            <div class="row">
+                <div class="col-auto float-start">
+                    <label for="inputShikibetsu" class="col-form-label">識別</label>
+                </div>
+                <div class="col-auto float-start">
+                    <select class="form-control" id="inputShikibetsu">
+                        <option>単勝・複勝</option>
+                        <option>枠連</option>
+                        <option>馬連</option>
+                        <option>ワイド</option>
+                        <option>馬単</option>
+                        <option>3連複（フォーメーション）</option>
+                        <option>3連複（ボックス）</option>
+                        <option>3連単（フォーメーション）</option>
+                        <option>3連単（ボックス）</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="tab-content">
+        <div id="tab1" class="tab-pane active">
+
+                    <div class="col-auto">
+                        <p>☆オッズを表示したい馬番の組み合わせを選択して［オッズ表示］ボタンを押してください。</p>
+                    </div>
+                    <div class="form-group row">
+                        <span class="border border-success"><p>組合せ数：30</p></span>
+                        <td><button type="button" class="btn btn-success btn-sm ms-2">オッズ表示</button>
+                    </div>
+
+                    <div class="float-start">
+                    <table class="table table-secondary table-striped table-bordered table-sm">
+                        <thead>
+                        <tr>
+                            <th scope="col"><p>馬番</p></th>
+                            <th scope="col"><p>馬１</p></th>
+                            <th scope="col"><p>馬２</p></th>
+                            <th scope="col"><p>馬３</p></th>
+                            <th scope="col"><p>馬名</p></th>
+                            <th scope="col"><p>騎手名</p></th>
+                            <th scope="col"><p>単勝オッズ</p></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><p class="bg-light text-black rounded">１</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                    <label class="custom-control-label" for="customCheck2"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                    <label class="custom-control-label" for="customCheck3"></label>
+                                </div>
+                            </td>
+                            <td><p>ファントムシーフ</p></td>
+                            <td><p>福永 祐一</p></td>
+                            <td><p><small color="red">5.1</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-light text-black rounded">２</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck4">
+                                    <label class="custom-control-label" for="customCheck4"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck5">
+                                    <label class="custom-control-label" for="customCheck5"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck6">
+                                    <label class="custom-control-label" for="customCheck6"></label>
+                                </div>
+                            </td>
+                            <td><p>ハーツコンチェルト</p></td>
+                            <td><p>松山 弘平</p></td>
+                            <td><p><small color="red">9.0</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-dark text-white rounded">３</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck7">
+                                    <label class="custom-control-label" for="customCheck7"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck8">
+                                    <label class="custom-control-label" for="customCheck8"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck9">
+                                    <label class="custom-control-label" for="customCheck9"></label>
+                                </div>
+                            </td>
+                            <td><p>シーウィザード</p></td>
+                            <td><p>浜中 俊</p></td>
+                            <td><p><small color="blue">89.7</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-dark text-white rounded">４</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck10">
+                                    <label class="custom-control-label" for="customCheck10"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck11">
+                                    <label class="custom-control-label" for="customCheck11"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck12">
+                                    <label class="custom-control-label" for="customCheck12"></label>
+                                </div>
+                            </td>
+                            <td><p>セレンディピティ</p></td>
+                            <td><p>武 豊</p></td>
+                            <td><p><small color="blue">19.8</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-danger text-white rounded">５</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck13">
+                                    <label class="custom-control-label" for="customCheck13"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck14">
+                                    <label class="custom-control-label" for="customCheck14"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck15">
+                                    <label class="custom-control-label" for="customCheck15"></label>
+                                </div>
+                            </td>
+                            <td><p>フェイト</p></td>
+                            <td><p>坂井 瑠星</p></td>
+                            <td><p><small color="blue">76.8</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-danger text-white rounded">６</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck16">
+                                    <label class="custom-control-label" for="customCheck16"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck17">
+                                    <label class="custom-control-label" for="customCheck17"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck18">
+                                    <label class="custom-control-label" for="customCheck18"></label>
+                                </div>
+                            </td>
+                            <td><p>グリューネグリーン</p></td>
+                            <td><p>M.デムーロ</p></td>
+                            <td><p><small color="blue">29.9</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-primary text-white rounded">７</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck19">
+                                    <label class="custom-control-label" for="customCheck19"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck20">
+                                    <label class="custom-control-label" for="customCheck20"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck21">
+                                    <label class="custom-control-label" for="customCheck21"></label>
+                                </div>
+                            </td>
+                            <td><p>ボーンイングランデ</p></td>
+                            <td><p>斎藤 新</p></td>
+                            <td><p><small color="blue">278.0</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-primary text-white rounded">８</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck22">
+                                    <label class="custom-control-label" for="customCheck22"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck23">
+                                    <label class="custom-control-label" for="customCheck23"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck24">
+                                    <label class="custom-control-label" for="customCheck24"></label>
+                                </div>
+                            </td>
+                            <td><p>トップナイフ</p></td>
+                            <td><p>横山 典弘</p></td>
+                            <td><p><small color="blue">18.7</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-warning text-white rounded">９</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck25">
+                                    <label class="custom-control-label" for="customCheck25"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck26">
+                                    <label class="custom-control-label" for="customCheck26"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck27">
+                                    <label class="custom-control-label" for="customCheck27"></label>
+                                </div>
+                            </td>
+                            <td><p>セブンマジシャン</p></td>
+                            <td><p>C.デムーロ</p></td>
+                            <td><p><small color="red">7.0</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-warning text-white rounded">１０</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck28">
+                                    <label class="custom-control-label" for="customCheck28"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck29">
+                                    <label class="custom-control-label" for="customCheck29"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck30">
+                                    <label class="custom-control-label" for="customCheck30"></label>
+                                </div>
+                            </td>
+                            <td><p>ガストリック</p></td>
+                            <td><p>三浦 皇成</p></td>
+                            <td><p><small color="red">7.9</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-success text-white rounded">１１</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck31">
+                                    <label class="custom-control-label" for="customCheck31"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck32">
+                                    <label class="custom-control-label" for="customCheck32"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck33">
+                                    <label class="custom-control-label" for="customCheck33"></label>
+                                </div>
+                            </td>
+                            <td><p>ドゥラエレーデ</p></td>
+                            <td><p>B.ムルザバエフ</p></td>
+                            <td><p><small color="blue">90.6</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-success text-white rounded">１２</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck34">
+                                    <label class="custom-control-label" for="customCheck34"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck35">
+                                    <label class="custom-control-label" for="customCheck35"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck36">
+                                    <label class="custom-control-label" for="customCheck36"></label>
+                                </div>
+                            </td>
+                            <td><p>モンドプリューム</p></td>
+                            <td><p>横山 和生</p></td>
+                            <td><p><small color="blue">370.0</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-warning text-white rounded">１３</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck37">
+                                    <label class="custom-control-label" for="customCheck37"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck38">
+                                    <label class="custom-control-label" for="customCheck38"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck39">
+                                    <label class="custom-control-label" for="customCheck39"></label>
+                                </div>
+                            </td>
+                            <td><p>ヴェルテンベルク</p></td>
+                            <td><p>横山 武史</p></td>
+                            <td><p><small color="blue">55.6</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-warning text-white rounded">１４</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck40">
+                                    <label class="custom-control-label" for="customCheck40"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck41">
+                                    <label class="custom-control-label" for="customCheck41"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck42">
+                                    <label class="custom-control-label" for="customCheck42"></label>
+                                </div>
+                            </td>
+                            <td><p>ジェイパームス</p></td>
+                            <td><p>D.イーガン</p></td>
+                            <td><p><small color="blue">34.3</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-warning text-white rounded">１５</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck43">
+                                    <label class="custom-control-label" for="customCheck43"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck44">
+                                    <label class="custom-control-label" for="customCheck44"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck45">
+                                    <label class="custom-control-label" for="customCheck45"></label>
+                                </div>
+                            </td>
+                            <td><p>キングズレイン</p></td>
+                            <td><p>C.ルメール</p></td>
+                            <td><p><small color="blue">18.2</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-danger text-white rounded">１６</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck46">
+                                    <label class="custom-control-label" for="customCheck46"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck47">
+                                    <label class="custom-control-label" for="customCheck47"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck48">
+                                    <label class="custom-control-label" for="customCheck48"></label>
+                                </div>
+                            </td>
+                            <td><p>スカパラダイス</p></td>
+                            <td><p>今村 聖奈</p></td>
+                            <td><p><small color="blue">234.4</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-danger text-white rounded">１７</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck49">
+                                    <label class="custom-control-label" for="customCheck49"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck50">
+                                    <label class="custom-control-label" for="customCheck50"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck51">
+                                    <label class="custom-control-label" for="customCheck51"></label>
+                                </div>
+                            </td>
+                            <td><p>ジュンツバメガエシ</p></td>
+                            <td><p>石川 裕紀人</p></td>
+                            <td><p><small color="blue">243.1</small></p></td>
+                        </tr>
+                        <tr>
+                            <td><p class="bg-danger text-white rounded">１８</p></td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck52">
+                                    <label class="custom-control-label" for="customCheck52"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck53">
+                                    <label class="custom-control-label" for="customCheck53"></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck54">
+                                    <label class="custom-control-label" for="customCheck54"></label>
+                                </div>
+                            </td>
+                            <td><p>ミッキーカプチーノ</p></td>
+                            <td><p>戸崎 圭太</p></td>
+                            <td><p><small color="red">3.0</small></p></td>
+                        </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    </div>
+
+
+
+
+
+
+            </div>
+
+        </div>
+        <div id="tab2" class="tab-pane">タブ２の内容</div>
+    </div>
+
+</div>
+
+
+
+
+    <!--script>require('./renderer.js')</script>
+
+    <!--以下は画面遷移したら消す？-->
+    <!-- Vju.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Bootstrap等 Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+//    <script>
+//
+//        new Vue({
+//            el: '#app'
+//       })
+//
+//    </script>
+
+</body>
+</html>
