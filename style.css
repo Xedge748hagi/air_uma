@@ -9,3 +9,8 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 }
+
+.ozz {
+    /* ルート要素の文字サイズを変更する */
+    font-size: 18px;
+} 

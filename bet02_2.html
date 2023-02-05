@@ -1,0 +1,1365 @@
+﻿<!--bet02.html-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>馬券投票シミュレーション『エアうま』＞ レース選択 ＞ 模擬投票</title>
+
+    <!--以下は画面遷移したら消す？-->
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap:; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src *; img-src * data: blob: android-webview-video-poster:; style-src * 'unsafe-inline';">
+    <!--フォントの読み込み-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="bg">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a href="#tab1" class="nav-link" data-bs-toggle="tab">単勝・複勝</a>
+            </li>
+            <li class="nav-item">
+                <a href="#tab2" class="nav-link" data-bs-toggle="tab">枠連</a>
+            </li>
+            <li class="nav-item">
+                <a href="#tab3" class="nav-link" data-bs-toggle="tab">馬連</a>
+            </li>
+            <li class="nav-item">
+                <a href="#tab4" class="nav-link" data-bs-toggle="tab">ワイド</a>
+            </li>
+            <li class="nav-item">
+                <a href="#tab5" class="nav-link" data-bs-toggle="tab">馬単</a>
+            </li>
+            <li class="nav-item">
+                <a href="#tab6" class="nav-link active" data-bs-toggle="tab" aria-current="page">三連複（フォーメーション）</a>
+            </li>
+            <li class="nav-item">
+                <a href="#tab7" class="nav-link" data-bs-toggle="tab">三連複（ボックス）</a>
+            </li>
+            <li class="nav-item">
+                <a href="#tab8" class="nav-link" data-bs-toggle="tab">三連単（フォーメーション）</a>
+            </li>
+            <li class="nav-item">
+                <a href="#tab9" class="nav-link" data-bs-toggle="tab">三連単（ボックス）</a>
+            </li>
+        </ul>
+    
+        <div class="plan-race-title col-auto mt-2 ms-2">
+            <div class="col-auto"><h6>（プラン名）師走競馬</h6></div>
+            <div class="row">
+                <div class="col-auto">
+                    <h6>～ 中山(水)　１１Ｒ　ホープフルステークス(ＧⅠ) ～</h6>
+                </div>
+                <div class="col-auto">
+                        <h6>締切時刻15:24</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content ms-2">
+            <div id="tab1" class="ozz tab-pane">
+                <div class="row">
+                    <div class="col-auto">
+                        <h5 style="color:green">■投票する組合せのオッズを選択してください。</h5>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-outline-success btn-sm">馬番順↓</button>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-outline-success btn-sm">単勝人気順↓</button>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-success btn-sm">オッズ更新</button>
+                    </div>    
+                </div>
+                <div class="tanpuku-tbl float-start mt-2">
+                    <table class="table table-secondary table-bordered table-hover table-sm align-middle">
+                        <thead>
+                            <tr>
+                            <th scope="col" style="text-align: center">馬番</th>
+                            <th scope="col" style="text-align: center">馬名</th>
+                            <th scope="col" style="text-align: center">騎手名</th>
+                            <th scope="col" style="text-align: center">chk</th>
+                            <th scope="col" style="text-align: center">単勝オッズ</th>
+                            <th scope="col" style="text-align: center">chk</th>
+                            <th scope="col" style="text-align: center">複勝オッズ</th>
+                            <th scope="col" style="text-align: center">単勝人気</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><div class="bg-light text-black rounded" style="text-align: center">1</div></td>
+                                <td>ファントムシーフ</td>
+                                <td>福永 祐一</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk1">
+                                        <label class="custom-control-label" for="tan-chk1"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:red;text-align: center">5.1</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk1">
+                                        <label class="custom-control-label" for="fuku-chk1"></label>
+                                    </div>
+                                </td>
+                                <td><div style="color:black;text-align: center">1.8 - 2.5</div></td>
+                                <td><div style="text-align: center">2</div></td>
+                            </tr>                             
+                            <tr>
+                                <td><div class="bg-light text-black rounded" style="text-align: center">2</div></td>
+                                <td>ハーツコンチェルト</td>
+                                <td>松山 弘平</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk2">
+                                        <label class="custom-control-label" for="tan-chk2"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:red;text-align: center">9.0</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk2">
+                                        <label class="custom-control-label" for="fuku-chk2"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">2.4 - 3.3</div></td>
+                                <td><div style="text-align: center">5</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="bg-dark text-white rounded" style="text-align: center">3</div></td>
+                                <td>シーウィザード</td>
+                                <td>浜中 俊</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk3">
+                                        <label class="custom-control-label" for="tan-chk3"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:blucred;text-align: center">89.7</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk3">
+                                        <label class="custom-control-label" for="fuku-chk3"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">10.5 - 15.6</div></td>
+                                <td><div style="text-align: center">13</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="bg-dark text-white rounded" style="text-align: center">4</div></td>
+                                <td>セレンディピティ</td>
+                                <td>武 豊</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk4">
+                                        <label class="custom-control-label" for="tan-chk4"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:blucred;text-align: center">19.8</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk4">
+                                        <label class="custom-control-label" for="fuku-chk4"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">4.4 - 6.4</div></td>
+                                <td><div style="text-align: center">8</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="bg-danger text-white rounded" style="text-align: center">5</div></td>
+                                <td>フェイト</td>
+                                <td>坂井 瑠星</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk5">
+                                        <label class="custom-control-label" for="tan-chk5"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:blucred;text-align: center">76.8</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk5">
+                                        <label class="custom-control-label" for="fuku-chk5"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">10.6 - 15.7</div></td>
+                                <td><div style="text-align: center">12</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="bg-danger text-white rounded" style="text-align: center">6</div></td>
+                                <td>グリューネグリーン</td>
+                                <td>M.デムーロ</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk6">
+                                        <label class="custom-control-label" for="tan-chk6"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:blucred;text-align: center">29.9</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk6">
+                                        <label class="custom-control-label" for="fuku-chk6"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">5.7 - 8.3</div></td>
+                                <td><div style="text-align: center">9</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="bg-primary text-white rounded" style="text-align: center">7</div></td>
+                                <td>ボーンイングランデ</td>
+                                <td>斎藤 新</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk7">
+                                        <label class="custom-control-label" for="tan-chk7"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:blue;text-align: center">278.0</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk7">
+                                        <label class="custom-control-label" for="fuku-chk7"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">34.0 - 51.1</div></td>
+                                <td><div style="text-align: center">17</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="bg-primary text-white rounded" style="text-align: center">8</div></td>
+                                <td>トップナイフ</td>
+                                <td>横山 典弘</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk8">
+                                        <label class="custom-control-label" for="tan-chk8"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">18.7</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk8">
+                                        <label class="custom-control-label" for="fuku-chk8"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">2.9 - 4.1</div></td>
+                                <td><div style="text-align: center">7</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class=" text-black rounded" style="text-align: center;background-color:#ffff00">9</div></td>
+                                <td>セブンマジシャン</td>
+                                <td>C.デムーロ</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk9">
+                                        <label class="custom-control-label" for="tan-chk9"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:red;text-align: center">7.0</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk9">
+                                        <label class="custom-control-label" for="fuku-chk9"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">1.9 - 2.6</div></td>
+                                <td><div style="text-align: center">3</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class=" text-black rounded" style="text-align: center;background-color:#ffff00">10</div></td>
+                                <td>ガストリック</td>
+                                <td>三浦 皇成</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk10">
+                                        <label class="custom-control-label" for="tan-chk10"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:red;text-align: center">7.9</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk10">
+                                        <label class="custom-control-label" for="fuku-chk10"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">2.2 - 3.1</div></td>
+                                <td><div style="text-align: center">4</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="bg-success text-white rounded" style="text-align: center">11</div></td>
+                                <td>ドゥラエレーデ</td>
+                                <td>B.ムルザバエフ</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk11">
+                                        <label class="custom-control-label" for="tan-chk11"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:blue;text-align: center">90.6</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk11">
+                                        <label class="custom-control-label" for="fuku-chk11"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">10.8 - 16.0</div></td>
+                                <td><div style="text-align: center">14</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="bg-success text-white rounded" style="text-align: center">12</div></td>
+                                <td>モンドプリューム</td>
+                                <td>横山 和生</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk12">
+                                        <label class="custom-control-label" for="tan-chk12"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:blue;text-align: center">370.0</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk12">
+                                        <label class="custom-control-label" for="fuku-chk12"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">58.0 - 87.2</div></td>
+                                <td><div style="text-align: center">18</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="bg-warning text-white rounded" style="text-align: center">13</div></td>
+                                <td>ヴェルテンベルク</td>
+                                <td>横山 武史</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk13">
+                                        <label class="custom-control-label" for="tan-chk13"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">55.6</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk13">
+                                        <label class="custom-control-label" for="fuku-chk13"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">7.4 - 10.9</div></td>
+                                <td><div style="text-align: center">11</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="bg-warning text-white rounded" style="text-align: center">14</div></td>
+                                <td>ジェイパームス</td>
+                                <td>D.イーガン</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk14">
+                                        <label class="custom-control-label" for="tan-chk14"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">34.3</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk14">
+                                        <label class="custom-control-label" for="fuku-chk14"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">5.9 - 8.7</div></td>
+                                <td><div style="text-align: center">10</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="bg-warning text-white rounded" style="text-align: center">15</div></td>
+                                <td>キングズレイン</td>
+                                <td>C.ルメール</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk15">
+                                        <label class="custom-control-label" for="tan-chk15"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">18.2</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk15">
+                                        <label class="custom-control-label" for="fuku-chk15"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">3.6 - 5.2</div></td>
+                                <td><div style="text-align: center">6</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="text-white rounded" style="text-align: center;background-color:#ff69b4">16</div></td>
+                                <td>スカパラダイス</td>
+                                <td>今村 聖奈</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk16">
+                                        <label class="custom-control-label" for="tan-chk16"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:blue;text-align: center">234.4</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk16">
+                                        <label class="custom-control-label" for="fuku-chk16"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">32.0 - 48.1</div></td>
+                                <td><div style="text-align: center">15</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="text-white rounded" style="text-align: center;background-color:#ff69b4">17</div></td>
+                                <td>ジュンツバメガエシ</td>
+                                <td>石川 裕紀人</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk17">
+                                        <label class="custom-control-label" for="tan-chk17"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:blue;text-align: center">243.1</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk17">
+                                        <label class="custom-control-label" for="fuku-chk17"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">24.5 - 36.8</div></td>
+                                <td><div style="text-align: center">16</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class="text-white rounded" style="text-align: center;background-color:#ff69b4">18</div></td>
+                                <td>ミッキーカプチーノ</td>
+                                <td>戸崎 圭太</td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="tan-chk18">
+                                        <label class="custom-control-label" for="tan-chk18"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:red;text-align: center">3.0</div></td>                                
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="fuku-chk18">
+                                        <label class="custom-control-label" for="fuku-chk18"></label>
+                                    </div>
+                                </td>                             
+                                <td><div style="color:black;text-align: center">1.4 - 1.7</div></td>
+                                <td><div style="text-align: center">1</div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                  
+            </div>
+            <div id="tab2" class="tab-pane">
+                枠連の内容
+            </div>
+            <div id="tab3" class="tab-pane">
+                馬連の内容
+            </div>
+            <div id="tab4" class="tab-pane">
+                ワイドの内容
+            </div>
+            <div id="tab5" class="tab-pane">
+                馬単の内容
+            </div>
+            <div id="tab6" class="ozz tab-pane active">
+                <div class="row">
+                    <div class="col-auto">
+                        <p style="color:green">■オッズを表示したい馬番の組み合わせを選択して［オッズ表示］ボタンを押してください。</p5>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-outline-success btn-sm">オッズ表示</button>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-success btn-sm">オッズ更新</button>
+                    </div>    
+                </div>
+
+                <div class="sanrenpuku-fo-tb6 float-start">
+                    <table class="table table-secondary table-bordered table-hover table-sm align-middle">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="text-align: center">馬番</th>
+                                <th scope="col" style="text-align: center">馬１</th>
+                                <th scope="col" style="text-align: center">馬２</th>
+                                <th scope="col" style="text-align: center">馬３</th>
+                                <th scope="col" style="text-align: center">馬名</th>
+                                <th scope="col" style="text-align: center">騎手名</th>
+                                <th scope="col" style="text-align: center">単勝オッズ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><div class="bg-light text-black rounded" style="text-align: center">1</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk11">
+                                        <label class="custom-control-label" for="sanpukufo-chk11"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk21">
+                                        <label class="custom-control-label" for="sanpukufo-chk21"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk31" checked>
+                                        <label class="custom-control-label" for="sanpukufo-chk31"></label>
+                                    </div>
+                                </td>                             
+                                <td>ファントムシーフ</td>
+                                <td>福永 祐一</td>
+                                <td><div style="color:red;text-align: center">5.1</div></td>                                
+                            </tr>                             
+                            <tr>
+                                <td><div class="bg-light text-black rounded" style="text-align: center">2</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk12">
+                                        <label class="custom-control-label" for="sanpukufo-chk12"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk22">
+                                        <label class="custom-control-label" for="sanpukufo-chk22"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk32" checked>
+                                        <label class="custom-control-label" for="sanpukufo-chk32"></label>
+                                    </div>
+                                </td>                             
+                                <td>ハーツコンチェルト</td>
+                                <td>松山 弘平</td>
+                                <td><div style="color:red;text-align: center">9.0</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="bg-dark text-white rounded" style="text-align: center">3</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk13">
+                                        <label class="custom-control-label" for="sanpukufo-chk13"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk23">
+                                        <label class="custom-control-label" for="sanpukufo-chk23"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk33">
+                                        <label class="custom-control-label" for="sanpukufo-chk33"></label>
+                                    </div>
+                                </td>                             
+                                <td>シーウィザード</td>
+                                <td>浜中 俊</td>
+                                <td><div style="color:black;text-align: center">89.7</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="bg-dark text-white rounded" style="text-align: center">4</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk14">
+                                        <label class="custom-control-label" for="sanpukufo-chk14"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk24">
+                                        <label class="custom-control-label" for="sanpukufo-chk24"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk34" checked>
+                                        <label class="custom-control-label" for="sanpukufo-chk34"></label>
+                                    </div>
+                                </td>                             
+                                <td>セレンディピティ</td>
+                                <td>武 豊</td>
+                                <td><div style="color:black;text-align: center">19.8</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="bg-danger text-white rounded" style="text-align: center">5</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk15">
+                                        <label class="custom-control-label" for="sanpukufo-chk15"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk25">
+                                        <label class="custom-control-label" for="sanpukufo-chk25"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk35">
+                                        <label class="custom-control-label" for="sanpukufo-chk35"></label>
+                                    </div>
+                                </td>                             
+                                <td>フェイト</td>
+                                <td>坂井 瑠星</td>
+                                <td><div style="color:black;text-align: center">76.8</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="bg-danger text-white rounded" style="text-align: center">6</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk16">
+                                        <label class="custom-control-label" for="sanpukufo-chk16"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk26">
+                                        <label class="custom-control-label" for="sanpukufo-chk26"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk36">
+                                        <label class="custom-control-label" for="sanpukufo-chk36"></label>
+                                    </div>
+                                </td>                             
+                                <td>グリューネグリーン</td>
+                                <td>M.デムーロ</td>
+                                <td><div style="color:black;text-align: center">29.9</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="bg-primary text-white rounded" style="text-align: center">7</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk17">
+                                        <label class="custom-control-label" for="sanpukufo-chk17"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk27">
+                                        <label class="custom-control-label" for="sanpukufo-chk27"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk37">
+                                        <label class="custom-control-label" for="sanpukufo-chk37"></label>
+                                    </div>
+                                </td>                             
+                                <td>ボーンイングランデ</td>
+                                <td>斎藤 新</td>
+                                <td><div style="color:blue;text-align: center">278.0</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="bg-primary text-white rounded" style="text-align: center">8</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk18" checked>
+                                        <label class="custom-control-label" for="sanpukufo-chk18"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk28">
+                                        <label class="custom-control-label" for="sanpukufo-chk28"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk38">
+                                        <label class="custom-control-label" for="sanpukufo-chk38"></label>
+                                    </div>
+                                </td>
+                                <td>トップナイフ</td>
+                                <td>横山 典弘</td>
+                                <td><div style="color:black;text-align: center">18.7</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class=" text-black rounded" style="text-align: center;background-color:#ffff00">9</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk19">
+                                        <label class="custom-control-label" for="sanpukufo-chk19"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk29">
+                                        <label class="custom-control-label" for="sanpukufo-chk29"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk39" checked>
+                                        <label class="custom-control-label" for="sanpukufo-chk39"></label>
+                                    </div>
+                                </td>
+                                <td>セブンマジシャン</td>
+                                <td>C.デムーロ</td>
+                                <td><div style="color:red;text-align: center">7.0</div></td>                                
+                             </tr>
+                            <tr>
+                                <td><div class=" text-black rounded" style="text-align: center;background-color:#ffff00">10</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk110">
+                                        <label class="custom-control-label" for="sanpukufo-chk110"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk210">
+                                        <label class="custom-control-label" for="sanpukufo-chk210"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk310" checked>
+                                        <label class="custom-control-label" for="sanpukufo-chk310"></label>
+                                    </div>
+                                </td>
+                                <td>ガストリック</td>
+                                <td>三浦 皇成</td>
+                                <td><div style="color:red;text-align: center">7.9</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="bg-success text-white rounded" style="text-align: center">11</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk111">
+                                        <label class="custom-control-label" for="sanpukufo-chk111"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk211">
+                                        <label class="custom-control-label" for="sanpukufo-chk211"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk311" checked>
+                                        <label class="custom-control-label" for="sanpukufo-chk311"></label>
+                                    </div>
+                                </td>
+                                <td>ドゥラエレーデ</td>
+                                <td>B.ムルザバエフ</td>
+                                <td><div style="color:blue;text-align: center">90.6</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="bg-success text-white rounded" style="text-align: center">12</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk112">
+                                        <label class="custom-control-label" for="sanpukufo-chk112"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk212">
+                                        <label class="custom-control-label" for="sanpukufo-chk212"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk312">
+                                        <label class="custom-control-label" for="sanpukufo-chk312"></label>
+                                    </div>
+                                </td>
+                                <td>モンドプリューム</td>
+                                <td>横山 和生</td>
+                                <td><div style="color:blue;text-align: center">370.0</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="bg-warning text-white rounded" style="text-align: center">13</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk113">
+                                        <label class="custom-control-label" for="sanpukufo-chk113"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk213">
+                                        <label class="custom-control-label" for="sanpukufo-chk213"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center" checked>
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk313">
+                                        <label class="custom-control-label" for="sanpukufo-chk313"></label>
+                                    </div>
+                                </td>
+                                <td>ヴェルテンベルク</td>
+                                <td>横山 武史</td>
+                                <td><div style="color:black;text-align: center">55.6</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="bg-warning text-white rounded" style="text-align: center">14</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk114">
+                                        <label class="custom-control-label" for="sanpukufo-chk114"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk214">
+                                        <label class="custom-control-label" for="sanpukufo-chk214"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk314">
+                                        <label class="custom-control-label" for="sanpukufo-chk314"></label>
+                                    </div>
+                                </td>
+                                <td>ジェイパームス</td>
+                                <td>D.イーガン</td>
+                                <td><div style="color:black;text-align: center">34.3</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="bg-warning text-white rounded" style="text-align: center">15</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk115">
+                                        <label class="custom-control-label" for="sanpukufo-chk115"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk215" checked>
+                                        <label class="custom-control-label" for="sanpukufo-chk215"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk315">
+                                        <label class="custom-control-label" for="sanpukufo-chk315"></label>
+                                    </div>
+                                </td>
+                                <td>キングズレイン</td>
+                                <td>C.ルメール</td>
+                                <td><div style="color:black;text-align: center">18.2</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="text-white rounded" style="text-align: center;background-color:#ff69b4">16</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk116">
+                                        <label class="custom-control-label" for="sanpukufo-chk116"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk216">
+                                        <label class="custom-control-label" for="sanpukufo-chk216"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk316">
+                                        <label class="custom-control-label" for="sanpukufo-chk316"></label>
+                                    </div>
+                                </td>
+                                <td>スカパラダイス</td>
+                                <td>今村 聖奈</td>
+                                <td><div style="color:blue;text-align: center">234.4</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="text-white rounded" style="text-align: center;background-color:#ff69b4">17</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk117">
+                                        <label class="custom-control-label" for="sanpukufo-chk117"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk217">
+                                        <label class="custom-control-label" for="sanpukufo-chk217"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk317">
+                                        <label class="custom-control-label" for="sanpukufo-chk317"></label>
+                                    </div>
+                                </td>
+                                <td>ジュンツバメガエシ</td>
+                                <td>石川 裕紀人</td>
+                                <td><div style="color:blue;text-align: center">243.1</div></td>                                
+                            </tr>
+                            <tr>
+                                <td><div class="text-white rounded" style="text-align: center;background-color:#ff69b4">18</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk118">
+                                        <label class="custom-control-label" for="sanpukufo-chk118"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk218">
+                                        <label class="custom-control-label" for="sanpukufo-chk218"></label>
+                                    </div>
+                                </td>                             
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="sanpukufo-chk318" checked>
+                                        <label class="custom-control-label" for="sanpukufo-chk318"></label>
+                                    </div>
+                                </td>
+                                <td>ミッキーカプチーノ</td>
+                                <td>戸崎 圭太</td>
+                                <td><div style="color:red;text-align: center">3.0</div></td>                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-auto">
+                    <h5 style="color:green"><br>　■投票する組合せのオッズを選択して［投票選択］ボタンを押してください。</h5>
+                </div>
+                <div class="row">
+                    <div class="col-auto ms-3">
+                        <button type="button" class="btn btn-outline-success btn-sm" onclick="allcheck(true);">全選択</button>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-outline-success btn-sm" onclick="allcheck(false);">全解除</button>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#md1">投票選択</button>
+                    </div>
+                </div>
+                <div class="tohyo-sentaku-tbl float-start">
+                    <table class="table table-info table-striped table-bordered table-sm mt-2 ms-4">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="text-align: center">馬組</th>
+                                <th scope="col" style="text-align: center">オッズ</th>
+                                <th scope="col" style="text-align: center">chk</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01-08-15</td>
+                                <td><div style="color:blue;text-align: center">197.2</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="odds-chk01">
+                                        <label class="custom-control-label" for="odds-chk01"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>02-08-15</td>
+                                <td><div style="color:blue;text-align: center">357.3</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="odds-chk02">
+                                        <label class="custom-control-label" for="odds-chk02"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>04-08-15</td>
+                                <td><div style="color:blue;text-align: center">637.1</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="odds-chk03">
+                                        <label class="custom-control-label" for="odds-chk03"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>08-09-15</td>
+                                <td><div style="color:blue;text-align: center">223.5</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="odds-chk04">
+                                        <label class="custom-control-label" for="odds-chk04"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>08-10-15</td>
+                                <td><div style="color:blue;text-align: center">398.7</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="odds-chk05">
+                                        <label class="custom-control-label" for="odds-chk05"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>08-11-15</td>
+                                <td><div style="color:blue;text-align: center">2329.7</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="odds-chk06">
+                                        <label class="custom-control-label" for="odds-chk06"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>08-13-15</td>
+                                <td><div style="color:blue;text-align: center">970.9</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="odds-chk07">
+                                        <label class="custom-control-label" for="odds-chk07"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>08-15-18</td>
+                                <td><div style="color:blue;text-align: center">149.0</div></td>
+                                <td>
+                                    <div class="custom-control custom-checkbox ms-2" style="transform: scale(2.0);text-align: center">
+                                        <input type="checkbox" class="custom-control-input" id="odds-chk08">
+                                        <label class="custom-control-label" for="odds-chk08"></label>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- Scrollable modal1 -->
+    <div class="modal fade" id="md1" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-xl-down modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">模擬投票予定リスト（投票可能金額：651,800円、投票可能件数：9,000件）</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-auto">
+                        <h5 style="color:green">■投票内容および全ての金額を入力したことを確認のうえ［模擬投票確定］ボタンを押してください。</h5>
+                    </div>
+                    <div class="row">
+                        <div class="col-auto"><p>組合せ数：8</p></div>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">一括セット</span>
+                            <div class="col-auto">
+                                <input type="text" class="form-control" aria-label="ikkatsu">
+                            </div>
+                            <span class="input-group-text">00円</span>
+                        </div>
+                    </div>
+                    <div class="ozz float-start">
+                    <table class="table table-bordered border-success">
+                        <thead>
+                        <tr>
+                            <th scope="col" style="text-align: center">No.</th>
+                            <th scope="col" style="text-align: center">レース名</th>
+                            <th scope="col" style="text-align: center">投票内容</th>
+                            <th scope="col" style="text-align: center">オッズ</th>
+                            <th scope="col" style="text-align: center">金額</th>
+                            <th scope="col" style="text-align: center">削除</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                            <td>01-08-15</td>
+                            <td><div style="color:blue;text-align: center">197.2</div></td>
+                            <td>
+                                <div class="input-group">
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" aria-label="kingaku01">
+                                    </div>
+                                    <span class="input-group-text">00円</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-sm">削除</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                            <td>02-08-15</td>
+                            <td><div style="color:blue;text-align: center">357.3</div></td>
+                            <td>
+                                <div class="input-group">
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" aria-label="kingaku02">
+                                    </div>
+                                    <span class="input-group-text">00円</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-sm">削除</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                            <td>04-08-15</td>
+                            <td><div style="color:blue;text-align: center">637.1</div></td>
+                            <td>
+                                <div class="input-group">
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" aria-label="kingaku03">
+                                    </div>
+                                    <span class="input-group-text">00円</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-sm">削除</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                            <td>08-09-15</td>
+                            <td><div style="color:blue;text-align: center">223.5</div></td>
+                            <td>
+                                <div class="input-group">
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" aria-label="kingaku04">                                    </div>
+                                    <span class="input-group-text">00円</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-sm">削除</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                            <td>08-10-15</td>
+                            <td><div style="color:blue;text-align: center">398.7</div></td>
+                            <td>
+                                <div class="input-group">
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" aria-label="kingaku05">
+                                    </div>
+                                    <span class="input-group-text">00円</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-sm">削除</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                            <td>08-11-15</td>
+                            <td><div style="color:blue;text-align: center">2329.7</div></td>
+                            <td>
+                                <div class="input-group">
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" aria-label="kingaku06">
+                                    </div>
+                                    <span class="input-group-text">00円</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-sm">削除</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                            <td>08-13-15</td>
+                            <td><div style="color:blue;text-align: center">970.9</td>
+                            <td>
+                                <div class="input-group">
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" aria-label="kingaku07">
+                                    </div>
+                                    <span class="input-group-text">00円</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-sm">削除</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                            <td>08-15-18</td>
+                            <td><div style="color:blue;text-align: center">149.0</div></td>
+                            <td>
+                                <div class="input-group">
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" aria-label="kingaku08">
+                                    </div>
+                                    <span class="input-group-text">00円</span>
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger btn-sm">削除</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"><h5 style="color:green;text-align: center">合計金額800円</h5></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#md2">模擬投票確定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scrollable modal2 -->
+    <div class="modal fade" id="md2" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">模擬投票確定リスト（投票可能金額：651,000円、投票可能件数：8,999件）</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-auto">
+                        <h6 style="color:green mb-2">■以下の模擬投票を確定しました。</h6>
+                    </div>
+                    <div class="ozz float-start">
+                        <table class="table table table-success table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col" style="text-align: center">No.</th>
+                                <th scope="col" style="text-align: center">レース名</th>
+                                <th scope="col" style="text-align: center">投票内容</th>
+                                <th scope="col" style="text-align: center">オッズ</th>
+                                <th scope="col" style="text-align: center">金額</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                                <td>01-08-15</td>
+                                <td><div style="color:blue;text-align: center">197.2</div></td>
+                                <td><div style="color:black;text-align: center">100円</div></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                                <td>02-08-15</td>
+                                <td><div style="color:blue;text-align: center">357.3</div></td>
+                                <td><div style="color:black;text-align: center">100円</div></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                                <td>04-08-15</td>
+                                <td><div style="color:blue;text-align: center">637.1</div></td>
+                                <td><div style="color:black;text-align: center">100円</div></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                                <td>08-09-15</td>
+                                <td><div style="color:blue;text-align: center">223.5</div></td>
+                                <td><div style="color:black;text-align: center">100円</div></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                                <td>08-10-15</td>
+                                <td><div style="color:blue;text-align: center">398.7</div></td>
+                                <td><div style="color:black;text-align: center">100円</div></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                                <td>08-11-15</td>
+                                <td><div style="color:blue;text-align: center">2329.7</div></td>
+                                <td><div style="color:black;text-align: center">100円</div></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                                <td>08-13-15</td>
+                                <td><div style="color:blue;text-align: center">970.9</div></td>
+                                <td><div style="color:black;text-align: center">100円</div></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>［師走競馬］中山(水) １１Ｒ 三連複</td>
+                                <td>08-15-18</td>
+                                <td><div style="color:blue;text-align: center">149.0</div></td>
+                                <td><div style="color:black;text-align: center">100円</div></td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"></th>
+                                    <th scope="col"><h5 style="color:green;text-align: center">合計金額800円</h5></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+            </div>
+            <div id="tab7" class="tab-pane">
+                三連複（ボックス）の内容
+            </div>
+            <div id="tab8" class="tab-pane">
+                三連単（フォーメーション）の内容
+            </div>
+            <div id="tab9" class="tab-pane">
+                三連単（ボックス）の内容
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!--script>require('./renderer.js')</script>-->
+
+    <!-- 以下は画面遷移したら消す？-->
+    <!-- Vju.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Bootstrap等 Plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <!--scrip確定確定
+        new Vue({
+            el: '#app'
+       })
+    </script>-->
+
+</body>
+</html>
